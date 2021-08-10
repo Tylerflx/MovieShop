@@ -1,0 +1,20 @@
+﻿@model List<ApplicationCore.Models.MovieCardResponseModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>
+    @ViewBag.PageTitle
+</h1>
+<h3>
+    Total Top Movies : @ViewData["TotalMovies"]
+</h3>
+<div>
+    <ul>
+        @foreach (var movie in Model)   //allias with the top line
+        {
+            <li>@movie.Id</li>
+            <li>@movie.Title</li>
+        }
+    </ul>
+</div>
