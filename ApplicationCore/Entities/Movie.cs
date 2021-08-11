@@ -36,6 +36,9 @@ namespace ApplicationCore.Entities
 
         //Navigation to Cast with relationship of many to many
         public ICollection<MovieCast> MovieCasts { get; set; }
+        
+        //Navigation to Crew with relationship of many to many
+        public ICollection<MovieCrew> MovieCrews { get; set; }
 
         
     }

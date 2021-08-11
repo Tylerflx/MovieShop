@@ -24,6 +24,8 @@ namespace Infrastructure.Data
         public DbSet<Movie> Movies { get; set; }
 
         public DbSet<Cast> Casts { get; set; }
+
+        public DbSet<Crew> Crews { get; set; }
         //using Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,6 +46,31 @@ namespace Infrastructure.Data
             modelBuilder.Entity<Cast>(ConfigureCast);
             //MovieCast
             modelBuilder.Entity<MovieCast>(ConfigureMovieCast);
+
+
+            ////HOMEWORK
+            //Crew
+            modelBuilder.Entity<Crew>(ConfigureCrew);
+            //MovieCrew
+            modelBuilder.Entity<MovieCrew>(ConfigureMovieCrew);
+        }
+
+        private void ConfigureMovieCrew(EntityTypeBuilder<MovieCrew> builder)
+        {
+            builder.ToTable("MovieCrew");
+            builder.HasKey(mcc => new { mcc.MovieId, mcc.CrewId, mcc.Department, mcc.Job });
+            builder.Property(mcc => mcc.Department).HasMaxLength(128);
+            builder.Property(mcc => mcc.Job).HasMaxLength(128);
+            builder.HasOne(mcc => mcc.Movie).WithMany(mcc => mcc.MovieCrews).HasForeignKey(mcc => mcc.MovieId);
+            builder.HasOne(mcc => mcc.Crew).WithMany(mcc => mcc.MovieCrews).HasForeignKey(mcc => mcc.CrewId);
+        }
+
+        private void ConfigureCrew(EntityTypeBuilder<Crew> builder)
+        {
+            builder.ToTable("Crew");
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Name).HasMaxLength(128);
+            builder.Property(c => c.ProfilePath).HasMaxLength(2084);
         }
 
         //many to many with additional column
