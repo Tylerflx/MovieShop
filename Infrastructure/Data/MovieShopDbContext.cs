@@ -26,6 +26,8 @@ namespace Infrastructure.Data
         public DbSet<Cast> Casts { get; set; }
 
         public DbSet<Crew> Crews { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
         //using Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,11 +37,11 @@ namespace Infrastructure.Data
 
             //Trailer
             modelBuilder.Entity<Trailer>(ConfigureTrailer);
-            
+
             //MovieGenre
-            modelBuilder.Entity<Movie>().HasMany(m=> m.Genres).WithMany(g => g.Movies)
-                .UsingEntity<Dictionary<string, object>>("MovieGenre", 
-                m=> m.HasOne<Genre>().WithMany().HasForeignKey("GenreId"),
+            modelBuilder.Entity<Movie>().HasMany(m => m.Genres).WithMany(g => g.Movies)
+                .UsingEntity<Dictionary<string, object>>("MovieGenre",
+                m => m.HasOne<Genre>().WithMany().HasForeignKey("GenreId"),
                 g => g.HasOne<Movie>().WithMany().HasForeignKey("MovieId"));
 
             //Cast
@@ -47,12 +49,82 @@ namespace Infrastructure.Data
             //MovieCast
             modelBuilder.Entity<MovieCast>(ConfigureMovieCast);
 
-
             ////HOMEWORK
             //Crew
             modelBuilder.Entity<Crew>(ConfigureCrew);
             //MovieCrew
             modelBuilder.Entity<MovieCrew>(ConfigureMovieCrew);
+            //User
+            modelBuilder.Entity<User>(ConfigureUser);
+            //Review
+            modelBuilder.Entity<Review>(ConfigureReview);
+            //Role
+            modelBuilder.Entity<Role>(ConfigureRole);
+            //UserRole
+            modelBuilder.Entity<UserRole>(ConfigureUserRole);
+            //Purchase
+            modelBuilder.Entity<Purchase>(ConfigurePurchase);
+            //Favorite
+            modelBuilder.Entity<Favorite>(ConfigureFavorite);
+        }
+
+        private void ConfigureFavorite(EntityTypeBuilder<Favorite> builder)
+        {
+            builder.ToTable("Favorite");
+            builder.HasKey(f => f.Id);
+            builder.HasOne(f => f.User).WithMany(f => f.Favorites).HasForeignKey(p => p.UserId);
+            builder.HasOne(f => f.Movie).WithMany(f => f.Favorites).HasForeignKey(p => p.MovieId);
+        }
+
+        private void ConfigurePurchase(EntityTypeBuilder<Purchase> builder)
+        {
+            builder.ToTable("Purchase");
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.TotalPrice).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.PurchaseDateTime).HasMaxLength(7);
+            builder.HasOne(p => p.User).WithMany(p => p.Purchases).HasForeignKey(p => p.UserId);
+            builder.HasOne(p => p.Movie).WithMany(p => p.Purchases).HasForeignKey(p => p.MovieId);
+
+        }
+
+        private void ConfigureRole(EntityTypeBuilder<Role> builder)
+        {
+            builder.ToTable("Role");
+            builder.HasKey(r => r.Id);
+            builder.Property(r => r.Name).HasMaxLength(20);
+        }
+
+        private void ConfigureUserRole(EntityTypeBuilder<UserRole> builder)
+        {
+            builder.ToTable("UserRole");
+            builder.HasKey(ur => new { ur.UserId, ur.RoleId});
+            builder.HasOne(ur => ur.User).WithMany(ur => ur.UserRoles).HasForeignKey(ur => ur.UserId);
+            builder.HasOne(ur => ur.Role).WithMany(ur => ur.UserRoles).HasForeignKey(ur => ur.RoleId);
+            
+        }
+
+        private void ConfigureReview(EntityTypeBuilder<Review> builder)
+        {
+            builder.ToTable("Review");
+            builder.HasKey(r => new { r.MovieId, r.UserId });
+            builder.Property(r => r.Rating).HasColumnType("(decimal(3,2)");
+            builder.HasOne(r => r.Movie).WithMany(r => r.Reviews).HasForeignKey(r => r.MovieId);
+            builder.HasOne(r => r.User).WithMany(r => r.Reviews).HasForeignKey(r => r.UserId);
+        }
+
+        private void ConfigureUser(EntityTypeBuilder<User> builder)
+        {
+            builder.ToTable("User");
+            builder.HasKey(u => u.Id);
+            builder.Property(u => u.FirstName).HasMaxLength(128);
+            builder.Property(u => u.LastName).HasMaxLength(128);
+            builder.Property(u => u.DateOfBirth).HasMaxLength(7);
+            builder.Property(u => u.Email).HasMaxLength(256);
+            builder.Property(u => u.HashedPassword).HasMaxLength(1024);
+            builder.Property(u => u.PhoneNumber).HasMaxLength(16);
+            builder.Property(u => u.LockoutEndDate).HasMaxLength(7);
+            builder.Property(u => u.LastLoginDateTime).HasMaxLength(7);
+
         }
 
         private void ConfigureMovieCrew(EntityTypeBuilder<MovieCrew> builder)

@@ -5678,38 +5678,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tyler\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/tylerflx/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tyler\\Desktop\\MovieShop\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "/Users/tylerflx/Desktop/MovieShop/Infrastructure/Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Tyler\\Desktop\\MovieShop\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Tyler\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tyler\\Desktop\\MovieShop\\Infrastructure\\obj\\",
+      "projectPath": "/Users/tylerflx/Desktop/MovieShop/Infrastructure/Infrastructure.csproj",
+      "packagesPath": "/Users/tylerflx/.nuget/packages/",
+      "outputPath": "/Users/tylerflx/Desktop/MovieShop/Infrastructure/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Tyler\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/tylerflx/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Tyler\\Desktop\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {
-              "projectPath": "C:\\Users\\Tyler\\Desktop\\MovieShop\\ApplicationCore\\ApplicationCore.csproj"
+            "/Users/tylerflx/Desktop/MovieShop/ApplicationCore/ApplicationCore.csproj": {
+              "projectPath": "/Users/tylerflx/Desktop/MovieShop/ApplicationCore/ApplicationCore.csproj"
             }
           }
         }
@@ -5744,7 +5738,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
       }
     }
   }
