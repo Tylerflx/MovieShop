@@ -107,7 +107,7 @@ namespace Infrastructure.Data
         {
             builder.ToTable("Review");
             builder.HasKey(r => new { r.MovieId, r.UserId });
-            builder.Property(r => r.Rating).HasColumnType("(decimal(3,2)");
+            builder.Property(r => r.Rating).HasColumnType("decimal(3,2)");
             builder.HasOne(r => r.Movie).WithMany(r => r.Reviews).HasForeignKey(r => r.MovieId);
             builder.HasOne(r => r.User).WithMany(r => r.Reviews).HasForeignKey(r => r.UserId);
         }
@@ -121,6 +121,7 @@ namespace Infrastructure.Data
             builder.Property(u => u.DateOfBirth).HasMaxLength(7);
             builder.Property(u => u.Email).HasMaxLength(256);
             builder.Property(u => u.HashedPassword).HasMaxLength(1024);
+            builder.Property(u => u.Salt).HasMaxLength(1024);
             builder.Property(u => u.PhoneNumber).HasMaxLength(16);
             builder.Property(u => u.LockoutEndDate).HasMaxLength(7);
             builder.Property(u => u.LastLoginDateTime).HasMaxLength(7);

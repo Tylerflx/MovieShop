@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services;
+﻿using ApplicationCore.ServiceInterfaces;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MovieShopMVC.Models;
@@ -12,26 +13,29 @@ namespace MovieShopMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private MovieService _movieService;
-        public HomeController()
+        private IMovieService _movieService;
+        public HomeController(IMovieService movieService)
         {
             //put _movieService in constructor so we can use it or access anywhere
-            _movieService = new MovieService();
+            //_movieService = new MovieService();
+            _movieService = movieService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
 
         {
-            var movies = _movieService.GetTopRevenueMovies();
-            //get some movies and display
-            //pass data obj to view
+            //var movies = _movieService.GetTopRevenueMovies();
+            ////get some movies and display
+            ////pass data obj to view
 
-            //viewbag
-            ViewBag.PageTitle = "Top Revenue Movies";
-            //view data
-            ViewData["TotalMovies"] = movies.Count();
-            //Strongly typed models
-            return View(movies);    //passing obj
+            ////viewbag
+            //ViewBag.PageTitle = "Top Revenue Movies";
+            ////view data
+            //ViewData["TotalMovies"] = movies.Count();
+            ////Strongly typed models
+            //return View(movies);    //passing obj
+            var movieCards = await _movieService.GetTopRevenueMovies();
+            return View(movieCards);
         }
 
         public IActionResult Privacy()

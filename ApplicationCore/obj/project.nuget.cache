@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ORyhrGL18J/O8RmqjYcklU91cn4FIxqrgeT1UZxLUveeqmbYFL52mztngw2N89qj/I6MvPAk+zOYr9lRG5E8w==",
+  "dgSpecHash": "lbCQEgtWP6OnvqRmq6aSKY3nz+RBPK75Q04OLciLP4obkNggTn3xF6Px4SiopfdLpk+E99TrkNKYSII9R0L8Hg==",
   "success": true,
-  "projectFilePath": "/Users/tylerflx/Desktop/MovieShop/ApplicationCore/ApplicationCore.csproj",
+  "projectFilePath": "C:\\Users\\Tyler\\Desktop\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
