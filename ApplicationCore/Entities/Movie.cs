@@ -40,6 +40,11 @@ namespace ApplicationCore.Entities
         //Navigation to Crew with relationship of many to many
         public ICollection<MovieCrew> MovieCrews { get; set; }
 
-        
+        //Navigation to Review with relationship of many to one
+        public ICollection<Review> Reviews { get; set; }
+
+        public ICollection<Purchase> Purchases { get; set; }
+
+        public ICollection<Favorite> Favorites { get; set; }
     }
 }
