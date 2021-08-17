@@ -9,7 +9,6 @@ namespace ApplicationCore.Models
     public class MovieDetailsResponseModel
     {
         public int Id { get; set; }
-
         public string Title { get; set; }
         public string Overview { get; set; }
         public string Tagline { get; set; }
@@ -25,7 +24,7 @@ namespace ApplicationCore.Models
         public decimal? Price { get; set; }
         public decimal? Rating { get; set; }
 
-        public List<CastResponseModel> Casts { get; set; }
+        public List<CastResponseModel> Casts { get; set; }      
         public List<GenreResponseModel> Genres { get; set; }
     }
 }

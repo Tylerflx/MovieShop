@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using ApplicationCore.Models;
 using ApplicationCore.ServiceInterfaces;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MovieShopMVC.Controllers
 {
@@ -33,10 +36,28 @@ namespace MovieShopMVC.Controllers
 
             if (user == null)
             {
-                throw new Exception("Invalid Login");
+                return View();
             }
 
-            // Cookies based authentication....
+            // Cookies based authentication/ Forms Authentication
+            var claims = new List<Claim>
+            {
+                //Claims library from Microsoft
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.GivenName, user.FirstName),
+                new Claim(ClaimTypes.Surname, user.LastName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())    //everything in string
+
+            };
+            //use identity class to check for identity
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // create the cookies
+            // HttpContext
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity));
+
             return LocalRedirect("~/");
         }
 

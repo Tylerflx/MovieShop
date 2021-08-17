@@ -15,7 +15,7 @@
                     <p>@Model.Tagline</p>
                     </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    @Model.RunTime ms | @Model.ReleaseDate
+                    @Model.RunTime ms | @Model.ReleaseDate.GetValueOrDefault().Year
                     @foreach (var genre in Model.Genres )   //get back genre from Movie Service
                     {
                         <span class="badge bg-secondary rounded-pill">@genre.Name</span>
@@ -27,8 +27,8 @@
         </div>
         <div class="col">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-outline-light text-white" type="button">REVIEW</button>
-                <button class="btn btn-outline-light text-white" type="button">TRAILER</button>
+                <button class="btn btn-outline-dark text-black" type="button">REVIEW</button>
+                <button class="btn btn-outline-dark text-black" type="button">TRAILER</button>
                 <button class="btn btn-white" type="button">BUY @Model.Price</button>
                 <button class="btn btn-white" type="button">WATCH MOVIE</button>
             </div>
@@ -42,24 +42,35 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Release Date
-                    <span class="badge bg-dark rounded-pill">@Model.ReleaseDate</span>
+                    <span class="badge bg-dark rounded-pill text-white">@Model.ReleaseDate.GetValueOrDefault().ToShortDateString()</span>
                 </li>                
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Run Time
-                    <span class="badge bg-dark rounded-pill">@Model.RunTime</span>
+                    <span class="badge bg-dark rounded-pill text-white">@Model.RunTime ms</span>
                 </li>                
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Box Office
-                    <span class="badge bg-dark rounded-pill">@Model.Price</span>
+                    <span class="badge bg-dark rounded-pill text-white">$@Model.Revenue</span>
                 </li>                
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Budget
-                    <span class="badge bg-dark rounded-pill">@Model.ReleaseDate</span>
+                    <span class="badge bg-dark rounded-pill text-white">$@Model.Budget</span>
                 </li>
             </ul>
         </div>
         <div class="col">
             <h3>CASTS</h3>
+            <ul class="list-group">
+                @foreach (var cast in Model.Casts)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <img src ="@cast.ProfilePath" width="50px" height="50px"/>
+                        <p>@cast.Name </p>
+                        <p>@cast.Character</p>
+                    </li>
+                }
+
+            </ul>
         </div>
     </div>
 </div>

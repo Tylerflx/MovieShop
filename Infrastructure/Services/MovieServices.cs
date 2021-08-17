@@ -29,7 +29,9 @@ namespace Infrastructure.Services
                 RunTime = movie.RunTime,
                 Tagline = movie.Tagline,
                 Overview = movie.Overview,
-                Price = movie.Price
+                Price = movie.Price,
+                Budget = movie.Budget,
+                Revenue = movie.Revenue
             };
 
             movieDetailsModel.Casts = new List<CastResponseModel>();
@@ -40,7 +42,10 @@ namespace Infrastructure.Services
                 {
                     Id = cast.CastId,
                     Name = cast.Cast.Name,
-                    Character = cast.Character
+                    Character = cast.Character,
+                    ProfilePath = cast.Cast.ProfilePath,
+                   
+                    
                 });
             }
 
