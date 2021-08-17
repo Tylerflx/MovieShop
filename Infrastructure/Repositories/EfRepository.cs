@@ -20,9 +20,11 @@ namespace Infrastructure.Repositories
         {
             _dbContext = dbContext;
         }
-        public Task<T> AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbContext.Set<T>().AddAsync(entity); //in memory
+            await _dbContext.SaveChangesAsync();    //after saved entity
+            return entity;
         }
 
         public Task<T> DeleteASync(T entity)

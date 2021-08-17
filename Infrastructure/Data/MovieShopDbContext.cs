@@ -28,6 +28,11 @@ namespace Infrastructure.Data
         public DbSet<Crew> Crews { get; set; }
 
         public DbSet<Role> Roles { get; set; }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public object User { get; internal set; }
+
         //using Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,6 +9,6 @@ namespace ApplicationCore.RepositoryInterfaces
 {
     public interface IMovieRepository : IAsyncRepository<Movie>
     {
-        Task<IEnumerable<Movie>> GetHighestRevenueMovies();
+        Task<IEnumerable<Movie>> Get30HighestRevenueMovies();
     }
 }

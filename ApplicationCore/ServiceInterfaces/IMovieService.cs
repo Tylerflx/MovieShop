@@ -11,5 +11,9 @@ namespace ApplicationCore.ServiceInterfaces
     {
         //display top 100 movies
         Task<List<MovieCardResponseModel>> GetTopRevenueMovies();
+
+        //get movie details by id
+        Task<MovieDetailsResponseModel> GetMovieDetails(int id);
+
     }
 }
