@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data
 {
-    public class MovieShopDbContext: DbContext
+    public class MovieShopDbContext : DbContext
     {
         public MovieShopDbContext(DbContextOptions<MovieShopDbContext> options) :base(options)
         {
@@ -31,6 +31,8 @@ namespace Infrastructure.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<MovieCast> MovieCasts { get; set; }
+
         public object User { get; internal set; }
 
         //using Fluent API

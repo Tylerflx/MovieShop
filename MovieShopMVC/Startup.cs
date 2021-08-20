@@ -35,8 +35,11 @@ namespace MovieShopMVC
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<IUserRespository, UserRepository>();
-
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<ICastRepository, CastRepository>();
+            services.AddScoped<ICastService, CastService>();
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

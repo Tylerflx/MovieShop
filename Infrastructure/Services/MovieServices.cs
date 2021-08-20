@@ -18,7 +18,6 @@ namespace Infrastructure.Services
         public async Task<MovieDetailsResponseModel> GetMovieDetails(int id)
         {
             var movie = await _movieRepository.GetByIdAsync(id);
-            //var yearMovie = DateTime.Parse(Convert.ToString(movie.ReleaseDate)).Year;
             var movieDetailsModel = new MovieDetailsResponseModel
             {
                 Id = movie.Id,

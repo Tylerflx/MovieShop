@@ -198,3 +198,5 @@ C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetC
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genre\Details.cshtml.g.cs
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Cast\Details.cshtml.g.cs

@@ -1,0 +1,52 @@
+﻿@model ApplicationCore.Models.CastResponseModel
+
+<style>
+    div.scrollmenu {
+        background-color: #fff;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    div.scrollmenu a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+
+    div.scrollmenu a:hover {
+        background-color: #777;
+    }
+    div.scrollmenu img {
+        height: 300px;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img src="@Model.ProfilePath" alt="@Model.Name" />
+        </div>
+        <div class="col">
+            <h2>@Model.Name</h2>
+            @if (Model.Gender == "1")
+            {<p>Gender : Female</p>}
+            else if (Model.Gender == "2")
+            {<p>Gender : Male</p>}
+            else
+            {<p>Gender : Other</p>}
+            <h5>Known For </h5>
+            <div class="scrollmenu">
+                @foreach (var movie in Model.Movies)
+                {
+                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                        <img src="@movie.PosterUrl" class="img-fluid" alt="@movie.Title" />
+                    </a>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

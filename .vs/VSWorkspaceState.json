@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ApplicationCore",
-    "\\MovieShopMVC",
-    "\\MovieShopMVC\\Controllers",
-    "\\MovieShopMVC\\Views",
-    "\\MovieShopMVC\\Views\\Home",
-    "\\MovieShopMVC\\Views\\Movies"
+    "\\MovieShopMVC"
   ],
   "SelectedNode": "\\MovieShop.sln",
   "PreviewInSolutionExplorer": false

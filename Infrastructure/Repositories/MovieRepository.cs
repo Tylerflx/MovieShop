@@ -16,7 +16,6 @@ namespace Infrastructure.Repositories
         {
 
         }
-
         public async Task<IEnumerable<Movie>> Get30HighestRevenueMovies()
         {
             return await _dbContext.Movies.OrderByDescending(m => m.Revenue).Take(30).ToListAsync();
