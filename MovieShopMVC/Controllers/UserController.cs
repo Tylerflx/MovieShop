@@ -34,7 +34,7 @@ namespace MovieShopMVC.Controllers
 
         public async Task<IActionResult> GetFavorites()
         {
-            throw new Exception("Exception Test");
+            //throw new Exception("Exception Test");
             var userId = _currentUserService.UserId;
             var movieCards = await _userService.GetFavorites(userId);
             return View(movieCards);

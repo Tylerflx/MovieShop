@@ -1,4 +1,5 @@
 ﻿@inject ApplicationCore.ServiceInterfaces.IGenreService _genreService
+@inject ApplicationCore.ServiceInterfaces.ICurrentUserService _currentUser
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="container ">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Movie Shop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +41,22 @@
                             </ul>
                          </li>
                     </ul>
-                    <div class=" d-flex">
-                                <button class="btn btn-primary me-md-2" type="button">Button</button>
-                                <button class="btn btn-primary" type="button">Button</button>
-                        </div>
+                    <div class=" nav d-flex">
+                        @if (_currentUser.UserId != 0)  //if userId is not null then
+                        {
+                            <a href="#" class="nav-link link-dark px-2 text-dark">Hi, @_currentUser.FullName</a>
+                            <a class="btn btn-outline-danger" role="button" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                            @*<button class="btn btn-outline-danger" type="button">Logout</button>*@
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-primary me-md-2" role="button" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            <a class="btn btn-primary" role="button" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                            @*<button class="btn btn-outline-primary me-md-2" type="button" >Login</button>
+                            <button class="btn btn-primary" type="button" asp-area="" asp-controller="Account" asp-action="Register">Register</button>*@
+                        }
+
+                    </div>
                     
                 </div>
             </div>

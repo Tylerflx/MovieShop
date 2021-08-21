@@ -8,15 +8,19 @@ using ApplicationCore.ServiceInterfaces;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 
 namespace MovieShopMVC.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-        public AccountController(IUserService userService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public AccountController(IUserService userService, IHttpContextAccessor contextAccessor)
         {
             _userService = userService;
+            _httpContextAccessor = contextAccessor;
         }
 
         [HttpGet]   //get render page
@@ -77,6 +81,14 @@ namespace MovieShopMVC.Controllers
             }
             var registeredUser = await _userService.RegisterUser(model);
             return RedirectToAction("Login");
+        }
+
+        //log out
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _httpContextAccessor.HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }   
