@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xuPe+8nFIP8MvgSa8xvgVQkVrTezNQ0aElRPRPgjZPLpF0pzTJOUZsmLmYEAP9r0p8bRCcU/6c8msBb9dnahKA==",
+  "dgSpecHash": "RvUOucrqJXq5/ffGw5B263W/AcqKU+BbBwaR3H3bzPcqqzSwK4x5+8d4yUSlkHc+GPcWLOWNBkurIXKi7Gy5UQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tyler\\Desktop\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,7 @@
     "C:\\Users\\Tyler\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\Tyler\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Tyler\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

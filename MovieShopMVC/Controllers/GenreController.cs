@@ -14,10 +14,19 @@ namespace MovieShopMVC.Controllers
         {
             _genreService = genreService;
         }
+        public async Task<IActionResult> Index()
+        {
+            //show list of genres in the header of Layout Page
+            //Hint: Use Partial View and use BS to show genres
+            //Use <a> of genres when click go to db and show the list of movies belongs to that genres
+            var genres = await _genreService.GetAllGenres();
+            return View(genres);
+        }
         public async Task<IActionResult> Details(int id)
         {
             var genreDetails = await _genreService.GetGenreDetails(id);
             return View(genreDetails);
         }
+        
     }
 }

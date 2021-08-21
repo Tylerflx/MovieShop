@@ -202,3 +202,4 @@ C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genre
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Cast\Details.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetFavorites.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetPurchases.cshtml.g.cs
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Serilog.dll
