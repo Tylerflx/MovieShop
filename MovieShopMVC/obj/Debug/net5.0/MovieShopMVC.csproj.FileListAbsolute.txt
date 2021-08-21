@@ -203,3 +203,5 @@ C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Cast\
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetFavorites.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetPurchases.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Serilog.dll
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Serilog.Sinks.File.dll
