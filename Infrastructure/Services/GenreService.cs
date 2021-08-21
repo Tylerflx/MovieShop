@@ -55,25 +55,25 @@ namespace Infrastructure.Services
                 Name = genre.Name
             };
 
-            genreDetailsModel.Movies = new List<MovieDetailsResponseModel>();
+            //genreDetailsModel = new List<GenreResponseModel>();
 
-            foreach (var movie in genre.Movies)
-            {
-                genreDetailsModel.Movies.Add(new MovieDetailsResponseModel
-                {
-                    Id = movie.Id,
-                    Title = movie.Title,
-                    Rating = movie.Rating,
-                    PosterUrl = movie.PosterUrl,
-                    ReleaseDate = movie.ReleaseDate,
-                    RunTime = movie.RunTime,
-                    Tagline = movie.Tagline,
-                    Overview = movie.Overview,
-                    Price = movie.Price,
-                    Budget = movie.Budget,
-                    Revenue = movie.Revenue
-                });
-            }
+            //foreach (var movie in genre)
+            //{
+            //    genreDetailsModel.Movies.Add(new MovieDetailsResponseModel
+            //    {
+            //        Id = movie.Id,
+            //        Title = movie.Title,
+            //        Rating = movie.Rating,
+            //        PosterUrl = movie.PosterUrl,
+            //        ReleaseDate = movie.ReleaseDate,
+            //        RunTime = movie.RunTime,
+            //        Tagline = movie.Tagline,
+            //        Overview = movie.Overview,
+            //        Price = movie.Price,
+            //        Budget = movie.Budget,
+            //        Revenue = movie.Revenue
+            //    });
+            //}
             return genreDetailsModel;
         }
     }

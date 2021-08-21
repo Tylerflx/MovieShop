@@ -25,7 +25,6 @@ namespace MovieShopMVC.Controllers
 
         public async Task<IActionResult> GetPurchases()
         {
-            throw new Exception("Dev Exception");
             //var userId = HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault();
             var userId = _currentUserService.UserId;
             var movieCards = await _userService.GetPurchaseMovies(userId);
@@ -35,6 +34,7 @@ namespace MovieShopMVC.Controllers
 
         public async Task<IActionResult> GetFavorites()
         {
+            throw new Exception("Exception Test");
             var userId = _currentUserService.UserId;
             var movieCards = await _userService.GetFavorites(userId);
             return View(movieCards);

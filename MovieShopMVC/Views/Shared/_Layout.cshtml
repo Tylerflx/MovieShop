@@ -1,4 +1,4 @@
-﻿@*@model ApplicationCore.Models.GenreResponseModel*@
+﻿@inject ApplicationCore.ServiceInterfaces.IGenreService _genreService
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +25,26 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Genres
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                @foreach (var genre in await _genreService.GetAllGenres())
+                                {
+
+                                    <li><a class="dropdown-item" asp-controller="Genre" asp-action="Details" asp-route-id="@genre.Id">@genre.Name</a></li>
+                                }
+
+                            </ul>
+                         </li>
                     </ul>
+                    <div class=" d-flex">
+                                <button class="btn btn-primary me-md-2" type="button">Button</button>
+                                <button class="btn btn-primary" type="button">Button</button>
+                        </div>
+                    
                 </div>
             </div>
         </nav>
