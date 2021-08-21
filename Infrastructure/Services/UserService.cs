@@ -22,6 +22,42 @@ namespace Infrastructure.Services
             _userRepository = userRepository;
         }
 
+        public async Task<IEnumerable<MovieCardResponseModel>> GetFavorites(int userId)
+        {
+            var user = await _userRepository.GetUserFavoritesById(userId);
+            var movieCards = new List<MovieCardResponseModel>();
+            foreach(var movie in user.Favorites)
+            {
+                //for each movie from user Favorite
+                //map with the Id
+                movieCards.Add(new MovieCardResponseModel
+                {
+                    Id = movie.MovieId,
+                    Title = movie.Movie.Title,
+                    PosterUrl = movie.Movie.PosterUrl
+                });
+                
+            }
+            return movieCards;
+
+        }
+
+        public async Task<IEnumerable<MovieCardResponseModel>> GetPurchaseMovies(int userId)
+        {
+            var user = await _userRepository.GetUserPurchasesById(userId);
+            var movieCards = new List<MovieCardResponseModel>();
+            foreach (var movie in user.Purchases)
+            {
+                movieCards.Add(new MovieCardResponseModel
+                {
+                    Id = movie.MovieId,
+                    Title = movie.Movie.Title,
+                    PosterUrl = movie.Movie.PosterUrl,
+                });
+            }
+            return movieCards;
+        }
+
         public async Task<UserLoginResponseModel> Login(LoginRequestModel model)
         {
             var dbUser = await _userRepository.GetUserByEmail(model.Email);

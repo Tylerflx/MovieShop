@@ -200,3 +200,5 @@ C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Accou
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genre\Details.cshtml.g.cs
 C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Cast\Details.cshtml.g.cs
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetFavorites.cshtml.g.cs
+C:\Users\Tyler\Desktop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetPurchases.cshtml.g.cs

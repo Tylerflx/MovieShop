@@ -1,0 +1,20 @@
+﻿@model List<ApplicationCore.Models.MovieCardResponseModel>
+@{
+    ViewData["Title"] = "Favourites";
+}
+
+<h1>
+    User Favorites List
+</h1>
+<div class="rounded">
+    <div class="container-fluid bg-light">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                <div class="col-6 col-lg-3 col-sm-4 col-xl-2">
+                    @await Html.PartialAsync("_movieCard", movie)
+                </div>
+            }
+        </div>
+    </div>
+</div>

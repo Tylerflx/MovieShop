@@ -65,7 +65,7 @@ namespace Infrastructure.Services
             //need to have foreach loop and pass each movie
             //convert
             var movieCards = new List<MovieCardResponseModel>();
-            foreach (var movie in movies)
+            foreach (var movie in movies)   
             {
                 movieCards.Add(new MovieCardResponseModel { Id = movie.Id, Title = movie.Title, PosterUrl = movie.PosterUrl });
             }
