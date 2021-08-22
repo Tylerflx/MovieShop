@@ -42,8 +42,8 @@ namespace MovieShopAPI
             //services.AddScoped<IUserService, UserService>();
             //services.AddScoped<IGenreRepository, GenreRepository>();
             //services.AddScoped<IGenreService, GenreService>();
-            //services.AddScoped<ICastRepository, CastRepository>();
-            //services.AddScoped<ICastService, CastService>();
+            services.AddScoped<ICastRepository, CastRepository>();
+            services.AddScoped<ICastService, CastService>();
             //services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();
 
             services.AddHttpContextAccessor();

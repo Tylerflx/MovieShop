@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApplicationCore.ServiceInterfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +13,23 @@ namespace MovieShopAPI.Controllers
     [ApiController]
     public class CastController : ControllerBase
     {
-        // GET: api/<CastController>
+        private readonly ICastService _castService;
+        public CastController(ICastService castService)
+        {
+            _castService = castService;
+        }
+
+        //api/Cast
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetAllCasts()
         {
-            return new string[] { "value1", "value2" };
+            var casts = await _castService.GetAllCasts();
+            if (!casts.Any())
+            {
+                return NotFound("No Cast Found.");
+            }
+            return Ok(casts);
         }
-
-        // GET api/<CastController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<CastController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<CastController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<CastController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }

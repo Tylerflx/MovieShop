@@ -17,6 +17,17 @@ namespace Infrastructure.Repositories
         {
             //inherit from base class
         }
+
+        public override async Task<IEnumerable<Cast>> ListAllAsync()
+        {
+            var cast = await _dbContext.Casts.Take(1000).ToListAsync();
+            if (cast == null)
+            {
+                throw new Exception($"No cast found");
+            }
+            return cast;
+        }
+
         public override async Task<Cast> GetByIdAsync(int id)
         {
             //this will use sql query to get records from db

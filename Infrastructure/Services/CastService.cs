@@ -16,6 +16,24 @@ namespace Infrastructure.Services
         {
             _castRepository = castRepository;
         }
+
+        public async Task<IEnumerable<CastResponseModel>> GetAllCasts()
+        {
+            var casts = await _castRepository.ListAllAsync();
+            var castDetailsModel = new List<CastResponseModel>();
+            foreach (var cast in casts)
+            {
+                castDetailsModel.Add(new CastResponseModel
+                {
+                    Id = cast.Id,
+                    Name = cast.Name,
+                    Gender = cast.Gender,
+                    ProfilePath = cast.ProfilePath
+                });
+            }
+            return castDetailsModel;
+        }
+
         public async Task<CastResponseModel> GetCastDetails(int id)
         {
             var cast = await _castRepository.GetByIdAsync(id);

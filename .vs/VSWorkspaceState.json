@@ -5,8 +5,7 @@
     "\\MovieShopAPI\\Controllers",
     "\\MovieShopAPI\\obj",
     "\\MovieShopAPI\\obj\\Release",
-    "\\MovieShopAPI\\Properties",
-    "\\MovieShopMVC\\Properties"
+    "\\MovieShopAPI\\Properties"
   ],
   "SelectedNode": "\\MovieShop.sln",
   "PreviewInSolutionExplorer": false

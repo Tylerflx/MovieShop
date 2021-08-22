@@ -28,7 +28,6 @@ namespace Infrastructure.Services
             }
 
             return movieCards;
-
         }
 
         public async Task<IEnumerable<MovieReviewsResponseModel>> GetAllReviews(int id)
