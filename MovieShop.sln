@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationCore", "ApplicationCore\ApplicationCore.csproj", "{EB61606B-A8A4-4D32-BF53-FDD444F3FB2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieShopAPI", "MovieShopAPI\MovieShopAPI.csproj", "{DC00708D-BDF0-4673-855C-D6EAB4E7F916}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EB61606B-A8A4-4D32-BF53-FDD444F3FB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB61606B-A8A4-4D32-BF53-FDD444F3FB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB61606B-A8A4-4D32-BF53-FDD444F3FB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC00708D-BDF0-4673-855C-D6EAB4E7F916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC00708D-BDF0-4673-855C-D6EAB4E7F916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC00708D-BDF0-4673-855C-D6EAB4E7F916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC00708D-BDF0-4673-855C-D6EAB4E7F916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

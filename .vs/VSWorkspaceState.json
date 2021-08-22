@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MovieShopMVC"
+    "\\MovieShopAPI",
+    "\\MovieShopAPI\\Controllers",
+    "\\MovieShopAPI\\obj",
+    "\\MovieShopAPI\\obj\\Release",
+    "\\MovieShopAPI\\Properties",
+    "\\MovieShopMVC\\Properties"
   ],
   "SelectedNode": "\\MovieShop.sln",
   "PreviewInSolutionExplorer": false

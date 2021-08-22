@@ -15,12 +15,10 @@ namespace MovieShopMVC.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AccountController(IUserService userService, IHttpContextAccessor contextAccessor)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
-            _httpContextAccessor = contextAccessor;
         }
 
         [HttpGet]   //get render page
@@ -87,7 +85,7 @@ namespace MovieShopMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await _httpContextAccessor.HttpContext.SignOutAsync();
+            await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
     }
