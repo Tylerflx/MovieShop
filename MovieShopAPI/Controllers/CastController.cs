@@ -29,7 +29,17 @@ namespace MovieShopAPI.Controllers
                 return NotFound("No Cast Found.");
             }
             return Ok(casts);
+        }        
+        
+        //api/Cast/{id}
+        [Route("{id}")]
+        [HttpGet]
+        public async Task<IActionResult> GetCastById(int id)
+        {
+            var casts = await _castService.GetCastDetails(id);
+            return Ok(casts);
         }
+
         
     }
 }

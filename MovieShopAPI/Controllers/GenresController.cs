@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApplicationCore.ServiceInterfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +13,18 @@ namespace MovieShopAPI.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        // GET: api/<GenresController>
+        private readonly IGenreService _genreService;
+        public GenresController(IGenreService genreService)
+        {
+            _genreService = genreService;
+        }
+
+        //api/genres
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetAllGenres()
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<GenresController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<GenresController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<GenresController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<GenresController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var movies = await _genreService.GetAllGenresApi();
+            return Ok(movies);
         }
     }
 }

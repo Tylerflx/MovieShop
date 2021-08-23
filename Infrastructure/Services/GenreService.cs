@@ -46,6 +46,21 @@ namespace Infrastructure.Services
             return genresModel;
         }
 
+        public async Task<IEnumerable<GenreResponseModel>> GetAllGenresApi()
+        {
+            var genres = await _genreRepository.ListAllAsync();
+            var genresModel = new List<GenreResponseModel>();
+            foreach (var genre in genres)
+            {
+                genresModel.Add(new GenreResponseModel
+                {
+                    Id = genre.Id,
+                    Name = genre.Name
+                });
+            }
+            return genresModel;
+        }
+
         public async Task<GenreResponseModel> GetGenreDetails(int id)
         {
             var genre = await _genreRepository.GetByIdAsync(id);

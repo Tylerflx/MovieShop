@@ -40,18 +40,17 @@ namespace MovieShopAPI
             //services.AddScoped<ICurrentUserService, CurrentUserService>();
             //services.AddScoped<IUserRespository, UserRepository>();
             //services.AddScoped<IUserService, UserService>();
-            //services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
             //services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ICastRepository, CastRepository>();
             services.AddScoped<ICastService, CastService>();
-            //services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();
+            services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();
 
             services.AddHttpContextAccessor();
             services.AddDbContext<MovieShopDbContext>
                 (
                 options => options.UseSqlServer(Configuration.GetConnectionString("MovieShopDbConnection"))
                 );
-            //services.AddHttpContextAccessor();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieShopAPI", Version = "v1" });

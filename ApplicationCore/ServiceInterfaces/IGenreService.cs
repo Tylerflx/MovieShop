@@ -12,5 +12,6 @@ namespace ApplicationCore.ServiceInterfaces
         //get movie by genre
         Task<GenreResponseModel> GetGenreDetails(int id);
         Task<IEnumerable<GenreResponseModel>> GetAllGenres();
+        Task<IEnumerable<GenreResponseModel>> GetAllGenresApi();
     }
 }

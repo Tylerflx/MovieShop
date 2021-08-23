@@ -26,5 +26,15 @@ namespace Infrastructure.Repositories
             }
             return genre;
         }
+
+        public override async Task<IEnumerable<Genre>> ListAllAsync()
+        {
+            var genre = await _dbContext.Genres.Take(100).ToListAsync();    //get 100
+            if (genre == null)
+            {
+                throw new Exception($"No genre found");
+            }
+            return genre;
+        }
     }
 }
