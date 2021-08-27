@@ -1,1 +1,16 @@
-<p>home works!</p>
+<!-- Pass the data from parent HomeComponent to Child MovieCard -->
+<!-- @Input  -->
+<!-- Emit Event from Child to Parent @Output -->
+<div class="rounded">
+    <div class="container-fuild bg-light">
+        <div class="row">
+            <div class="col-6 col-lg-3 col-sm-4 col-xl-2 " *ngFor="let movie of movies">
+                <!-- call my child component pass moviecard through input prop -->
+                <app-movie-card [movie] = "movie"></app-movie-card>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+<input class="form-control-file" type="text" name="" id="" placeholder="" />

@@ -18,6 +18,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MovieShopAPI
 {
@@ -38,19 +42,37 @@ namespace MovieShopAPI
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IMovieService, MovieService>();
             //services.AddScoped<ICurrentUserService, CurrentUserService>();
-            //services.AddScoped<IUserRespository, UserRepository>();
-            //services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRespository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IGenreRepository, GenreRepository>();
             //services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ICastRepository, CastRepository>();
             services.AddScoped<ICastService, CastService>();
-            services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();
+            //services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();
 
             services.AddHttpContextAccessor();
             services.AddDbContext<MovieShopDbContext>
                 (
                 options => options.UseSqlServer(Configuration.GetConnectionString("MovieShopDbConnection"))
                 );
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+                options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false,
+                        ValidateIssuer = false,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecretKey"]))
+                    };
+                });
+            services.AddAuthorization(options =>
+            {
+                var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme);
+                defaultAuthorizationPolicyBuilder = defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
+                options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieShopAPI", Version = "v1" });
@@ -71,6 +93,13 @@ namespace MovieShopAPI
 
             app.UseRouting();
 
+
+
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins(Configuration.GetValue<string>(key: "ClientSPAUrl")).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            });
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

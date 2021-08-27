@@ -1,1 +1,15 @@
 <h3>Login Page</h3>
+
+<div class="container" >
+    <form (ngSubmit) = "submit()" #loginForm ="ngForm" >
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" [(ngModel)]="login.email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" [(ngModel)]="login.password" class="form-control" id="password">
+        </div>
+        <input type="button" value="Login" type="submit" id="submit" class="btn btn-primary">
+    </form>
+</div>

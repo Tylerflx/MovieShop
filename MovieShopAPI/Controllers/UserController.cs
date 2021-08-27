@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,13 @@ namespace MovieShopAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        [Authorize]
+        [Route("{id:int}/purchases")]
+        [HttpGet]
+        public async Task<IActionResult> GetUserPurchases()
+        {
+            return Ok();
+        }
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<string> Get()
